@@ -1,0 +1,17 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px 10px;
+}
+nav ul {
+    display: flex;
+    padding: 30px 10px;
+    list-style: none;
+    gap: 20px;
+}
+a {
+    text-decoration: none;
+}
+header {
+    background-color: rgb(15, 15, 15);
+    color: rgb(248, 247, 245);
+}
