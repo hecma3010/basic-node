@@ -41,4 +41,4 @@ With (memory cache), the browser uses its stored copy without asking the server.
 - Status in Network: failed
 
 ### Did I get a 404? Why?
-Before testing, I expected a 404 code on screen, instead I receive a Your file couldn’t be accessed. This happens because there is no server. With file://, the browser reads the file directly from the disc, so nobody sends an HTTP response, and the browser shows its own error.
+Before testing, I expected a 404 code on screen, instead I received a Your file couldn't be accessed. This happens because there is no server. With file://, the browser reads the file directly from the disk, so nobody sends an HTTP response, and the browser shows its own error.
