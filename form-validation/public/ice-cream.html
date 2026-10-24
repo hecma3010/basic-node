@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ice Cream Order</title>
+    </head>
+    <body>
+        <main>
+            <h1>Order your Ice Cream</h1>
+            <form action="/process" method="post" novalidate>
+                <fieldset>
+                    <legend>User Info</legend>
+                    <label for="username">Username: </label>
+                    <input type="text" name="username" id="username" placeholder="Enter your username">
+                    <label for="email">Email: </label>
+                    <input type="email" name="email" id="email" placeholder="Enter your email">
+                    <label for="phone">Phone Number: </label>
+                    <input type="tel" name="phone" id="phone" placeholder="555-555-5555">
+                </fieldset>
+                <fieldset>
+                    <legend>Ice Cream Flavors</legend>
+                    <label for="flavor">Flavor: </label>
+                    <select id="flavor" name="flavor">
+                        <option value="0"> --- Choose a flavor --- </option>
+                        <option value="vanilla">Vanilla</option>
+                        <option value="strawberry">Strawberry</option>
+                        <option value="chocolate">Chocolate</option>
+                    </select>
+                </fieldset>
+                <fieldset>
+                    <legend>Container</legend>
+                    <label for="cup-container">Cup </label>
+                    <input type="radio" value="cup" name="container" id="cup-container">
+                    <label for="cone-container">Cone </label>
+                    <input type="radio" value="cone" name="container" id="cone-container">
+                </fieldset>
+                <fieldset>
+                    <legend>Requests</legend>
+                    <label for="request">Requests: </label>
+                    <textarea name="request" id="request"></textarea>
+                </fieldset>
+                <fieldset>
+                    <legend>Terms</legend>
+                    <label for="terms">I accept the terms</label>
+                    <input type="checkbox" name="terms" id="terms">
+                </fieldset>
+                <button type="submit">Order</button>
+            </form>
+        </main>
+    </body>
+</html>
