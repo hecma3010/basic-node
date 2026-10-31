@@ -43,6 +43,46 @@ app.get('/process-quiz', (request, response) => {
     console.log(answerData)
 });
 
+
+/**
+=== PARTE A · EL ABRIDOR DE SOBRES JSON ===
+
+A1. DECIR a la tienda que use express.json(),
+    para abrir los sobres que traen JSON en el cuerpo
+
+=== PARTE B · LA VENTANILLA DE TODAS LAS RESPUESTAS ===
+
+B1. ABRIR una ventanilla POST para /process-all
+B2.     LEER el array answers de request.body
+        (ya llega como objeto: express.json() hizo el JSON.parse)
+B3.     CREAR un objeto vacío llamado results
+B4.     PARA CADA pregunta, de q1 a q3 (posiciones 0 a 2 del array):
+            SI la respuesta es "x"
+                GUARDAR en results '<span class="unanswered">Unanswered</span>'
+            SI NO, SI la respuesta es igual a la de answerKey
+                GUARDAR '<span class="right">Right</span>'
+            SI NO
+                GUARDAR '<span class="wrong">Wrong</span>'
+B5.     RESPONDER con results usando response.json
+ */
+
+app.use(express.json());
+app.post('/process-all', (request, response) => {
+    const answers = request.body.answers;
+    const results = {};
+    answers.forEach((answer, index) => {
+        const question = 'q' + (index + 1);
+        if (answer === 'x') {
+            results[question] = `<span class="unanswered">Unanswered</span>`;
+        } else if (answer === answerKey[question]) {
+            results[question] = `<span class="right">Right</span>`;
+        } else {
+            results[question] = `<span class="wrong">Wrong</span>`;
+        }
+    });
+    response.json(results);
+});
+
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
 });
